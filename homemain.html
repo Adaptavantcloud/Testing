@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  body {
+      position: relative;
+  }
+  ul.nav-pills {
+      top: 80px;
+      position: fixed;
+  }
+  div.col-sm-9 div {
+      height: 250px;
+      font-size: 28px;
+  }
+  #step1 {color: #fff; background-color: #1E88E5;}
+  #step2 {color: #fff; background-color: #673ab7;}
+  #step3 {color: #fff; background-color: #ff9800;}
+    @media screen and (max-width: 810px) {
+    #step1, #step2, #step3{
+        margin-left: 150px;
+    }
+  }
+  </style>
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">NoteMaking</a>
+    </div>
+    <div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">User <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="index.html">Login</a></li>
+          <li><a href="signup.html">Signin</a></li>
+          <li><a href="processs.html">Open_user</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Aboutus</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="index.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+  </div>
+  </div>
+</nav>
+  
+<div class="container">
+  </div>
+<div class="container">
+  <div class="row">
+    <nav class="col-sm-3" id="myScrollspy">
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#step1">Step 1</a></li>
+        <li><a href="#step2">Step 2</a></li>
+        <li><a href="#step3">Step 3</a></li>             
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <div class="col-sm-9" style="top:65px;">
+      <div id="step1">    
+        <br><h1>Step 1</h1>
+        <a href="signup.html" style="font-color:red">For a New user... Register your detais in signup page...</a>
+      </div>
+      <div id="step2"> 
+        <h1>Step 2</h1>
+        <a href="index.html" style="font-color:red">Already have an account... Use login page...</a>
+      </div>        
+      <div id="step3">         
+        <h1>Step 3</h1>
+        <a href="processs.html" style="font-color:red">You don't want to create an account means use Openuer login...</a>
+      </div>
+    </div>
+  </div>
+</div>
+<pre><footer><p>&copy; Team Stomers<p></footer></pre>
+</body>
+</html>

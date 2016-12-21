@@ -1,0 +1,60 @@
+<!Doctype html>
+<head>
+<script>
+	<script>
+	function valiateForm(){
+	var x=document.myform.firstname1.value;
+	var y=document.myform.password1.value;
+	localStorage["x"] = x;
+	}
+</script>
+</script>
+<style>
+ul {
+    list-style-type: none;
+    margin: 10;
+    padding: 10;
+    overflow: hidden;
+    background-color: #333333;
+}
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: red;
+}
+</style>
+</head>
+<body>
+<ul>
+  <li><a href="#home">Home</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+<marque width="100%" behaviour="alternate" bgcolor="pink" style=" padding: 16px; font-style: courier-style">WELCOME TO NOTE MAKING </marquee>
+<pre><form name="myform" onsubmit="valiateForm()" action="index.html" method="post">
+	user_name:<input type="text" name="firstname1" required><br>
+	 password: <input type="password" name="password1" required><br>
+	 Re_password: <input type="password" name="Re_password" required><br>
+
+
+	<input type="submit" name="submit">
+</form>
+
+<img src="welcome.gif" alter="image" width="50%" height="100px">
+
+
+
+</pre>
+<pre><footer><p>&copy; Team Stomers<p></footer></pre>
+</body>
+</html>

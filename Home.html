@@ -2,46 +2,146 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Notemaking</title>
-<meta name="viewport"
-	content="width = device-width, initial-scale = 1.0">
-<link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="Bootstrap/css/MyStyle.css" rel="stylesheet">
+<title>Note Making</title>
+<meta name="viewport" content="width = device-width, initial-scale = 1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+function fontcolor()
+{
+  var fontcolor=document.getElementById("fontcolor1").value;
+  document.getElementById("labelvalue").style.color =fontcolor;
 
-</head>
-<body>
-	<div class="navbar navbar-inverse navbar-static-top">
-		<a href="#" class="navbar-brand text-center">Pin Note</a>
-	</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-8 col-md-8 col-sm-5">
-				<div class="customDiv2">
-					<form>
-						<label>Enter Your message:</label>
-						<textarea rows="18" class="form-control"></textarea>
-					</form>
-						
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-7">
-				<div class="customDiv3">
-					<ul class="list-group">
-					<a href="#" class="list-group-item active"><li>Item 1</li></a>
-					<a href="#" class="list-group-item"><li>Item 2</li></a>
-					<a href="#" class="list-group-item"><li>Item 3</li></a>
-					<a href="#" class="list-group-item"><li>Item 4</li></a>
-					</ul>
-				</div>
-				<div class="customDiv4">
-				<p><button class="btn btn-success pull-left" type="submit">Pin</button></p><br><br>
-				<p><a href="index.html"><button class="btn btn-default" type="submit">Logout</button></a></p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script
-		src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="Bootstrap/js/bootstrap.js"></script>
-<pre><footer><p>&copy; Team Stomers<p></footer></pre></body>
-</html>
+}
+function add() {
+var color=document.getElementById("color1").value;
+document.getElementById("labelvalue").style.backgroundColor =color;
+}
+</script>
+<style>
+      .ontop {
+        z-index: 999;
+        width: 150%;
+        height: 150%;
+        top: 0;
+        left: 0;
+        display: none;
+        position: absolute;       
+        background-color: #000000;
+        color: #aaaaaa;
+        opacity: .4;
+        filter: alpha(opacity = 50);
+      }
+      #popup {
+        width: 600px;
+        height: 400px;
+        position: absolute;
+        color: #000000;
+        background-color: powderblue;
+        top: 20%;
+        left: 25%;
+        margin-top: -50px;
+        margin-left: -100px;
+      }
+    </style>
+    </head>
+<body onload="placeDiv();">
+<nav class="navbar navbar navbar-fixed-top">
+    <a href="#" class="navbar-brand text-center">Note Making</a>
+  </div>
+<table>
+<tr><td>bgChange:</td><td><input type="color" name="bgcolor" id="color1" onchange ="add();">
+</td></tr><br>
+  <tr><td>fontColor:</td><td><input type="color" name="fontcolor" id="fontcolor1" onchange="fontcolor();"></td></tr>
+</table>
+<div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-5">
+        <div class="customDiv2">
+          <input type ="text" name="label" id="labelId">
+            <label>Enter Your message:</label>
+            <textarea rows="18" class="form-control" id="labelvalue"></textarea>
+          
+        </div>
+      </div>
+</div>
+</div>
+  <input type="button" value="AddLabel" onClick="addDiv();"/>
+<input type="button" value="reset" onClick="add1();"/>
+<input type="button" value="save" onClick="saveDiv();"/>
+ <div id="mainId"></div>
+
+ <div id="popDiv" class="ontop">
+      <table border="1" id="popup">
+        <tr>
+          <td>
+            <p id="showpTag"></p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Click Close OR escape button to close it
+            <a href="#" onClick="hide('popDiv')">Close</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="customDiv4">
+    <a href="index.html"><button class="btn btn-link pull-right" type="submit">
+              Logout <span class="glyphicon glyphicon-share"></span>
+            </button></a>
+            </div>
+
+ </body>
+ </html>
+<script>
+
+function addDiv() {
+var mainVal=document.getElementById("mainId").innerHTML;
+var lId=document.getElementById("labelId").value;
+var lVal=document.getElementById("labelvalue").value;
+var cPtag='<p onClick="showValue('+"'"+lVal+"'"+');">'+lId+'</p>\n';
+mainVal=mainVal+cPtag;
+document.getElementById("mainId").innerHTML =mainVal;
+}
+function showValue(lVal)
+ {
+    pop('popDiv',lVal);
+  }
+ 
+ function saveDiv(){
+  var mainDivVal=document.getElementById("mainId").innerHTML;
+   localStorage.setItem("mainDivVal", mainDivVal);
+ }
+ 
+ function placeDiv(){
+    var mainDivVall=localStorage.getItem("mainDivVal");
+    //alert(mainDivVall);
+    document.getElementById("mainId").innerHTML =mainDivVall;
+ }
+ 
+ 
+ function pop(div,cVal) {
+        document.getElementById(div).style.display = 'block';
+                document.getElementById("showpTag").innerHTML =cVal;
+      }
+      function hide(div) {
+        document.getElementById(div).style.display = 'none';
+      }
+      //To detect escape button
+      document.onkeydown = function(evt) {
+        evt = evt || window.event;
+        if (evt.keyCode == 27) {
+          hide('popDiv');
+        }
+      };
+function add1(){
+ // alert(localStorage.getItem("mainDivVal"));
+localStorage.removeItem("mainDivVal");
+//alert(localStorage.getItem("mainDivVal"));
+}
+
+   
+ </script>
+

@@ -1,60 +1,114 @@
-<!Doctype html>
+<!DOCTYPE html>
+<html>
 <head>
-<script>
-	<script>
-	function valiateForm(){
-	var x=document.myform.firstname1.value;
-	var y=document.myform.password1.value;
-	localStorage["x"] = x;
-	}
-</script>
-</script>
-<style>
-ul {
-    list-style-type: none;
-    margin: 10;
-    padding: 10;
-    overflow: hidden;
-    background-color: #333333;
-}
+<meta charset="ISO-8859-1">
+<html lang="en">
 
-li {
-    float: right;
-}
+  <title>Signup</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 16px;
-    text-decoration: none;
-}
 
-li a:hover {
-    background-color: red;
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+
+  <style>
+ .customDiv{
+
+  
+  margin: 30px;
+  min-height: 350px;
+  background-color: #e4e4e4;
+  text-align: center;
+  font-size: large;
+  border-top: 30px;
 }
 </style>
+<script>
+function reseet() {
+  alert(localStorage.getItem("username"));
+localStorage.removeItem("username");
+//alert(localStorage.getItem("username"));
+}
+
+function add() {
+var start=localStorage.getItem("username");
+//alert(start);
+
+
+var currentval=document.getElementById("userid").value;
+//alert(currentval);
+var finalvar="";
+if(start!=null && start!=""){
+
+finalvar=start+"$$$$"+currentval;
+}else{
+finalvar=currentval;
+}
+
+//document.getElementById("demo").innerHTML =finalvar;
+localStorage.setItem("username", finalvar);
+//alert(localStorage.getItem("username"));
+window.location = 'index.html';
+}
+</script>
 </head>
+
 <body>
-<ul>
-  <li><a href="#home">Home</a></li>
-  <li><a href="#about">About</a></li>
-</ul>
-<marque width="100%" behaviour="alternate" bgcolor="pink" style=" padding: 16px; font-style: courier-style">WELCOME TO NOTE MAKING </marquee>
-<pre><form name="myform" onsubmit="valiateForm()" action="index.html" method="post">
-	user_name:<input type="text" name="firstname1" required><br>
-	 password: <input type="password" name="password1" required><br>
-	 Re_password: <input type="password" name="Re_password" required><br>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">NoteMaking</a>
+    </div>
+ 
+    <div class="collapse navbar-collapse" id="myNavbar">
+    
+     <ul class="nav navbar-nav navbar-right">
+      <li><a href="homemain.html"><span class="glyphicon glyphicon-user"></span> Home</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Aboutus</a></li>
+     </ul>
+   </div>
+  </div>
 
-
-	<input type="submit" name="submit">
-</form>
-
-<img src="welcome.gif" alter="image" width="50%" height="100px">
-
-
-
-</pre>
-<pre><footer><p>&copy; Team Stomers<p></footer></pre>
-</body>
-</html>
+</nav>
+<br>
+<br>
+<br>
+<br>
+<marquee width="100%" behaviour="alternate" bgcolor="ffffff" style=" padding: 16px; font-style: courier-style">WELCOME TO NOTE MAKING </marquee>
+<div class="container">
+    <div class="col-lg-5 col-lg-offset-3 col-md-8 col-md-offset-2">
+      <div class="customDiv">
+        <h1>Singin</h1>
+        
+        <form>
+        <hr/>
+          <table><tr><td><div id="demo">user_name:</td><td><input id ="userid" type="text" name="firstname1" required><br>
+   </div></td></tr>
+   <tr><td>password: </td><td><input  id ="userpassword" type="password" name="password1" required></td></tr>
+   <tr><td>Re_password: </td><td><input type="password" name="Re_password" required></td></tr>
+</table>
+<hr/>
+<div style="bottom: 10px;">
+<table>
+   <tr><td><input type="button" value="reset" onclick="reseet();"/></td>
+   <td> </td>
+   <td><input type="button" value="add" onclick="add();"/></td></tr>
+   </table>
+</div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </body>
+  </html>

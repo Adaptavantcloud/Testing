@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -15,24 +15,10 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
 	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
 	crossorigin="anonymous">
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 	crossorigin="anonymous"></script>
-<script src="http://code.jquery.com/jquery-1.10.2.js"
-	type="text/javascript"></script>
-<script src="js/app-ajax.js" type="text/javascript"></script>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.js"
-	type="text/javascript"></script>
-<script>src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"</script>
-<script type="text/javascript" src="mustache.js"></script>
 </head>
 <style>
 #myDIV {
@@ -87,35 +73,9 @@
 					type="button" value="searching" /><br>
 				<div id="myDIV">
 					<!-- onclick ="myFunction()" -->
-					<div id="content">
-						<c:forEach var="message" items="${messageList}">
-							<p data-toggle="modal" data-target="#myModal"
-								onClick="showValue('${message.label}');">
-								<!--  <a href="UserData?label=">-->
-
-								<c:out value="${message.label}" />
-							</p>
-
-						</c:forEach>
-					</div>
+					<div id="content">first one</div>
 				</div>
-				<div id="popup_div">
-					<div id="responseContent"></div>
-					<br />
-					<button id="btnClose">Close</button>
-				</div>
-			</div>
-
-			<script>
-					$(function() {
-						$("#popup_div").dialog({
-							autoOpen : false
-						});
-						// code to close the dialog, let btnClose is the Id of button in popup_div
-						$("#popup_div").on('click', '#btnClose', function() {
-							$("#popup_div").dialog("close");
-						});
-					});
+				<script>
 					function myFunction() {
 						var mainVal = document.getElementById("content").innerHTML;
 						var btn = document.createElement("BUTTON");
@@ -127,31 +87,9 @@
 						document.getElementById("content").innerHTML = btn;
 
 					}
-					function showValue(label) {
-						//alert(label);
-						//$("#content").load();
-						// $('#content').load('editEvent-get-gift-stations?msgId=' + value);
-
-						//alert(label);
-						$.get('UserData', {
-							label : label
-						},
-								function(jsonInString) {
-									//alert(jsonInString);
-									$('#responseContent').text(jsonInString);
-									//var template = $('#popup_div').html();
-									//alert(template);
-									//var html = Mustache.render(template,jsonInString);
-									//var html = Mustache.to_html(template,jsonInString);
-									//alert(jsonInString);
-									//$('#responseContent').html(html);
-									$("#popup_div").dialog("open");
-								});
-					}
 				</script>
 
-
-
+			</div>
 			<p id="demo"></p>
 			<br> <br> <input type="button" value="updolading" /> <input
 				type="button" value="delete" /> <input type="button"

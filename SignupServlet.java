@@ -8,21 +8,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class SignupServlet extends HttpServlet{
+public class SignupServlet extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 		RequestDispatcher dispatcher;
 		boolean flag;
-		String SuserName=req.getParameter("SuserName");
-		String SuserPassword=req.getParameter("SuserPassword");
-		flag=User.createUpdateUser(SuserName, SuserPassword);
-		if(flag)
-		{
-			dispatcher=getServletContext().getRequestDispatcher("/login.jsp");
+		String SuserName = req.getParameter("SuserName");
+		String SuserPassword = req.getParameter("SuserPassword");
+		flag = User.createUpdateUser(SuserName, SuserPassword);
+		//flag = User.register(SuserName, SuserPassword);
+		if (flag) {
+			dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
 			dispatcher.forward(req, resp);
-		}
-		else
-		{
-			dispatcher=getServletContext().getRequestDispatcher("/signup.jsp");
+		} else {
+			dispatcher = getServletContext().getRequestDispatcher("/signup.jsp");
 			dispatcher.forward(req, resp);
 		}
 	}
